@@ -11,6 +11,6 @@ I set up a watchr file (kata.watchr) so that the tests are run automatically eve
     
     watchr kata.watchr
 
-The source of the kata is the Anagram Kata that you can find [here](http://codekata.pragprog.com/2007/01/kata_six_anagra.html). I've also linked the [slides](https://speakerdeck.com/u/sleepyfox/p/code-dojo-8-jun-2012) from the meeting. You can find out more about the London Code Dojo at our [homepage](http://www.meetup.com/London-Code-Dojo/).
+The source of the kata is the Anagram Kata that you can find [here](http://codekata.com/kata/kata06-anagrams/). I've also linked the [slides](https://speakerdeck.com/u/sleepyfox/p/code-dojo-8-jun-2012) from the meeting. You can find out more about the London Code Dojo at our [homepage](http://www.meetup.com/London-Code-Dojo/).
 
 The source code and the materials are licensed under a Creative Commons License, see the LICENSE file for details.
