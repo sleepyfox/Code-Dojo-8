@@ -2,11 +2,22 @@
 
 import unittest
 
+class OutOfRangeError: pass
+
 class RomanNumeral():
 	def toDecimal(self, v):
-		return "I"
+		if v < 1:
+			raise OutOfRangeError
+		else:
+			return "I"
 
 class RomanNumeralConverter(unittest.TestCase):
+	def testZero(self):
+		"trying to convert zero should raise an exception"
+		roman = RomanNumeral()
+		with self.assertRaises(OutOfRangeError):
+			roman.toDecimal(0)
+
 	def testIisOne(self):
 		"1 should be converted to 'I'"
 		roman = RomanNumeral()
