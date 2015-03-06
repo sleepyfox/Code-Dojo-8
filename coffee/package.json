@@ -19,7 +19,7 @@
     "kata"
   ],
   "author": "@sleepyfox <sleepyfox@gmail.com>",
-  "license": "BSD",
+  "license": "see LICENSE file",
   "dependencies": {
     "jasmine-node": "1.x.x"
   },
