@@ -3,15 +3,17 @@
 import unittest
 
 class OutOfRangeError: pass
+class LookupError: pass
 
 class RomanNumeral():
 	def toNumeral(self, v):
+		numerals = { 1: "I", 5: "V" }
 		if v < 1:
 			raise OutOfRangeError
-		elif v == 1:
-			return "I"
+		elif v in numerals:
+			return numerals[v]
 		else:
-			return "V"
+			raise LookupError
 
 class RomanNumeralConverter(unittest.TestCase):
 	def testZero(self):
