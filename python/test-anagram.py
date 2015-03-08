@@ -7,7 +7,7 @@ class LookupError: pass
 
 class RomanNumeral():
 	def toNumeral(self, v):
-		numerals = { 1: "I", 5: "V" }
+		numerals = { 1: "I", 5: "V", 10: "X" }
 		if v < 1:
 			raise OutOfRangeError
 		elif v in numerals:
@@ -16,21 +16,25 @@ class RomanNumeral():
 			raise LookupError
 
 class RomanNumeralConverter(unittest.TestCase):
+	def setUp(self):
+		self.roman = RomanNumeral()
+
 	def testZero(self):
 		"trying to convert zero should raise an exception"
-		roman = RomanNumeral()
 		with self.assertRaises(OutOfRangeError):
-			roman.toNumeral(0)
+			self.roman.toNumeral(0)
 
-	def testIisOne(self):
+	def test1isI(self):
 		"1 should be converted to I"
-		roman = RomanNumeral()
-		self.assertEqual(roman.toNumeral(1), "I")
+		self.assertEqual(self.roman.toNumeral(1), "I")
 
-	def testVisFive(self):
+	def test5isV(self):
 		"5 should be converted to V"
-		roman = RomanNumeral()
-		self.assertEqual(roman.toNumeral(5), "V")
+		self.assertEqual(self.roman.toNumeral(5), "V")
+
+	def test10isX(self):
+		"10 should be converted to X"
+		self.assertEqual(self.roman.toNumeral(10), "X")
 
 if __name__ == "__main__":
 	unittest.main()
