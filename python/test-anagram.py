@@ -5,23 +5,30 @@ import unittest
 class OutOfRangeError: pass
 
 class RomanNumeral():
-	def toDecimal(self, v):
+	def toNumeral(self, v):
 		if v < 1:
 			raise OutOfRangeError
-		else:
+		elif v == 1:
 			return "I"
+		else:
+			return "V"
 
 class RomanNumeralConverter(unittest.TestCase):
 	def testZero(self):
 		"trying to convert zero should raise an exception"
 		roman = RomanNumeral()
 		with self.assertRaises(OutOfRangeError):
-			roman.toDecimal(0)
+			roman.toNumeral(0)
 
 	def testIisOne(self):
-		"1 should be converted to 'I'"
+		"1 should be converted to I"
 		roman = RomanNumeral()
-		self.assertEqual(roman.toDecimal(1), "I")
+		self.assertEqual(roman.toNumeral(1), "I")
+
+	def testVisFive(self):
+		"5 should be converted to V"
+		roman = RomanNumeral()
+		self.assertEqual(roman.toNumeral(5), "V")
 
 if __name__ == "__main__":
 	unittest.main()
