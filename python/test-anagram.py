@@ -15,8 +15,9 @@ class RomanNumeral():
 			numeral = ""
 			remainder = v
 			while remainder > 0:
-				numeral += self.numerals[self.find_biggest(remainder)]
-				remainder -= self.find_biggest(remainder)
+				chunk = self.find_biggest(remainder)
+				numeral += self.numerals[chunk]
+				remainder -= chunk
 			return numeral
 
 	def find_biggest(self, v):
