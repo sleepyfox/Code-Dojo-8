@@ -1,11 +1,11 @@
 fs = require 'fs'
 
 readWordList = (fileName) ->
-  try 
+  try
     data = fs.readFileSync fileName, 'ascii'
     # split the data into lines
     lines = data.split '\n'
-    # remove trailing black line if present
+    # remove trailing blank line if present
     if lines[lines.length - 1] is ""
       lines.pop()
     lines
@@ -13,7 +13,7 @@ readWordList = (fileName) ->
     console.error "There was an error opening the file: #{fileName}"
     console.log err
 
-sortedLetters = (word) ->    
+sortedLetters = (word) ->
   word.toLowerCase().split("").sort().join('')
 
 anagrams = (word, wordList) ->
@@ -29,6 +29,7 @@ for word in list
   anagramList = (anagrams(word, dictionary)).join()
   console.log "#{word},#{anagramList}"
 
-exports.readWordList = readWordList
-exports.sortedLetters = sortedLetters
-exports.anagrams = anagrams
+module.exports =
+  readWordList: readWordList
+  sortedLetters: sortedLetters
+  anagrams: anagrams
