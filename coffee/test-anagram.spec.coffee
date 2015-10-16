@@ -1,8 +1,4 @@
-anagram = require './anagram'
-
-readWordList = anagram.readWordList
-anagrams = anagram.anagrams
-sortedLetters = anagram.sortedLetters
+{ readWordList, anagrams, sortedLetters } = require './anagram'
 
 describe 'Find an anagram', ->
   it 'should read lines from a file', ->
@@ -13,9 +9,9 @@ describe 'Find an anagram', ->
   it 'the sortedLetters of tea should be a e t', ->
     sorted = sortedLetters 'tea'
     expect(sorted).toBe('aet')
-   
+
   it 'ate should have anagrams eat and tea', ->
-    wordList = readWordList 'english_words.txt'  
+    wordList = readWordList 'english_words.txt'
     list = anagrams 'ate', wordList
     expect(list).toBeDefined()
     expect(list.length).toBe(2)

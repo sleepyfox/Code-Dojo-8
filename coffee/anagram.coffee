@@ -17,11 +17,9 @@ sortedLetters = (word) ->
   word.toLowerCase().split("").sort().join('')
 
 anagrams = (word, wordList) ->
-  matchedWords = []
-  for checkWord in wordList
-    if (sortedLetters(word) is sortedLetters(checkWord)) and (word isnt checkWord)
-      matchedWords.push checkWord
-  matchedWords
+  sorted_word = sortedLetters(word)
+  wordList.filter (x) ->
+    (sorted_word is sortedLetters(x)) and (x isnt word)
 
 list = ['kinship', 'enlist', 'boaster', 'fresher', 'sinks', 'knits', 'rots' ]
 dictionary = readWordList 'english_words.txt'
